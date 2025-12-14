@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Noroff Auction House - Bid on exclusive items"
+    />
+    <title>Noroff Auction House</title>
+    <link rel="icon" type="image/png" href="./Logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container position-relative">
+          <a class="navbar-brand" href="/">
+            <img
+              src="./Logo/Banner logo.png"
+              alt="Noroff Auction House"
+              height="40"
+            />
+          </a>
+          <div
+            class="d-none position-absolute top-50 start-50 translate-middle"
+            id="nav-create-btn"
+          >
+            <a class="btn btn-primary" href="/src/pages/create-listing.html">
+              Create Listing
+            </a>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="d-none text-white me-3" id="nav-credits">
+              <span>Credits: <strong id="user-credits">0</strong></span>
+            </div>
+            <div class="dropdown d-none" id="nav-avatar-dropdown">
+              <button
+                class="btn btn-link p-0"
+                type="button"
+                id="avatarDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  id="nav-avatar"
+                  src="https://via.placeholder.com/40"
+                  alt="User avatar"
+                  class="rounded-circle"
+                  width="40"
+                  height="40"
+                  style="object-fit: cover"
+                />
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="avatarDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="#" id="nav-profile-link"
+                    >Profile</a
+                  >
+                </li>
+                <li class="d-lg-none">
+                  <a class="dropdown-item" href="/src/pages/create-listing.html"
+                    >Create Listing</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <button class="dropdown-item" id="logout-btn-dropdown">
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div id="nav-login-link">
+              <a class="btn btn-outline-light" href="/src/pages/login.html"
+                >Login</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container my-5">
+      <div class="row mb-4 align-items-end">
+        <div class="col-md-4">
+          <h1>All Listings</h1>
+        </div>
+        <div class="col-md-2">
+          <label for="search-input" class="form-label">Search Listings</label>
+          <input
+            type="search"
+            class="form-control"
+            id="search-input"
+            placeholder="Search by title..."
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="tag-input" class="form-label">Filter by Tags</label>
+          <input
+            type="search"
+            class="form-control"
+            id="tag-input"
+            placeholder="Filter by tags (comma separated)..."
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="sort-select" class="form-label">Sort By</label>
+          <select class="form-select" id="sort-select">
+            <option value="created-desc">Newest First</option>
+            <option value="created-asc">Oldest First</option>
+            <option value="title-asc">Title (A-Z)</option>
+            <option value="title-desc">Title (Z-A)</option>
+            <option value="endsAt-asc">Ending Soon</option>
+            <option value="endsAt-desc">Ending Later</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="listings-container">
+        <div class="col-12 text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Listings pagination" class="mt-4">
+        <ul class="pagination justify-content-center" id="pagination"></ul>
+      </nav>
+    </main>
+
+    <footer class="py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2025 Golden Pavilion. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./src/js/index.js"></script>
+  </body>
+</html>
